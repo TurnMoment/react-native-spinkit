@@ -1,27 +1,28 @@
-var React = require('react');
-var ReactNative = require('react-native');
-
-var {
-  AppRegistry,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text
-} = ReactNative;
+import React, {
+	Component
+} from 'react';
+import {
+	AppRegistry,
+	StyleSheet,
+	Text,
+	View,
+	TouchableOpacity
+} from 'react-native';
 
 var Spinner = require('react-native-spinkit');
 
 var Example = React.createClass({
 
-  getInitialState() {
-    return {
-      index: 0,
-      types: ['CircleFlip', 'Bounce', 'Wave', 'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid', 'WordPress', 'FadingCircle', 'FadingCircleAlt', 'Arc', 'ArcAlt'],
-      size: 100,
-      color: "#FFFFFF",
-      isVisible: true
-    }
-  },
+ constructor(props) {
+		super(props);
+		this.state = {
+			index: 0,
+			types: ['CircleFlip', 'Bounce', 'Wave', 'WanderingCubes', 'Pulse', 'ChasingDots', 'ThreeBounce', 'Circle', '9CubeGrid', 'WordPress', 'FadingCircle', 'FadingCircleAlt', 'Arc', 'ArcAlt'],
+			size: 100,
+			color: "#FFFFFF",
+			isVisible: true,
+		}
+	}
 
   next() {
     if (this.state.index++ >= this.state.types.length)
@@ -51,19 +52,19 @@ var Example = React.createClass({
 
         <Text style={styles.text}>Type: {type}</Text>
 
-        <TouchableOpacity style={styles.btn} onPress={this.next}>
+        <TouchableOpacity style={styles.btn} onPress={()=>this.next()}>
           <Text style={styles.text}>Next</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={this.increaseSize}>
+        <TouchableOpacity style={styles.btn} onPress={()=>this.increaseSize()}>
           <Text style={styles.text}>Increase size</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={this.changeColor}>
+        <TouchableOpacity style={styles.btn} onPress={()=>this.changeColor()}>
           <Text style={styles.text}>Change color</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={this.changeVisibility}>
+        <TouchableOpacity style={styles.btn} onPress={()=>this.changeVisibility()}>
           <Text style={styles.text}>Change visibility</Text>
         </TouchableOpacity>
       </View>
